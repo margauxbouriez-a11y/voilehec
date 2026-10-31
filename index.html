@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Club Voile HEC</title>
+  <meta name="description" content="Le club de voile d'HEC Paris : l'équipage, la saison, la Course Croisière EDHEC, le WEIOS et nos partenaires." />
+  <meta property="og:title" content="Club Voile HEC" />
+  <meta property="og:description" content="Le club de voile d'HEC Paris. Devenez partenaire du Club Voile HEC." />
+  <meta property="og:image" content="images/hero.jpg" />
+  <link rel="icon" href="images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="evitement" href="#club">Aller au contenu</a>
+
+  <header class="entete" id="entete">
+    <a class="marque" href="#haut" aria-label="Club Voile HEC – accueil">
+      <img class="logo-club" src="images/logo.svg" alt="" width="44" height="44" />
+      <span><b>Club Voile</b><small>HEC Paris</small></span>
+    </a>
+    <button class="menu-bouton" id="menu-bouton" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" aria-label="Navigation principale">
+      <a href="#club">Le club</a>
+      <a href="#saison">La saison</a>
+      <a href="#galerie-photos">En mer</a>
+      <a href="#partenaires">Partenaires</a>
+      <a href="#evenements">Événements</a>
+      <a href="#devenir-partenaire" class="nav-cta">Devenir partenaire</a>
+    </nav>
+  </header>
+
+  <main id="haut">
+    <!-- Accueil -->
+    <section class="hero" id="hero">
+      <div class="hero-photo" id="hero-photo"></div>
+      <div class="hero-contenu">
+        <h1 id="hero-titre">La voile à HEC Paris</h1>
+        <p class="hero-texte" id="hero-texte"></p>
+        <div class="hero-actions">
+          <a class="bouton bouton-plein" href="#devenir-partenaire">Devenir partenaire</a>
+          <a class="bouton bouton-clair" href="#evenements">Voir les événements</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="vagues" aria-hidden="true"></div>
+
+    <!-- Chiffres clés -->
+    <section class="chiffres" aria-label="Chiffres clés">
+      <div class="conteneur"><dl class="chiffres-liste" id="chiffres"></dl></div>
+    </section>
+
+    <!-- Le club -->
+    <section class="bloc" id="club">
+      <div class="conteneur club">
+        <div>
+          <h2 id="presentation-titre">Un équipage, une école, le large</h2>
+          <div class="texte-long" id="presentation"></div>
+        </div>
+        <aside class="palmares" aria-labelledby="palmares-titre">
+          <h3 id="palmares-titre">Palmarès</h3>
+          <ol id="palmares"></ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- La saison -->
+    <section class="bloc bloc-blanc" id="saison">
+      <div class="conteneur saison">
+        <div>
+          <div class="titre-section">
+            <h2>La saison</h2>
+            <p>Les grands rendez-vous de l'année. Les résultats sont mis à jour après chaque régate.</p>
+          </div>
+          <ol class="calendrier" id="calendrier"></ol>
+        </div>
+        <aside class="entrainements" aria-labelledby="entrainements-titre">
+          <h3 id="entrainements-titre">Sorties et entraînements</h3>
+          <ul id="entrainements"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- En mer -->
+    <section class="bloc bloc-nuit" id="galerie-photos">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>En mer</h2>
+          <p>Cliquez sur une photo pour l'agrandir.</p>
+        </div>
+        <div class="galerie" id="galerie"></div>
+      </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section class="bloc bloc-blanc" id="partenaires">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Ils soutiennent le Club Voile</h2>
+          <p>Merci aux entreprises qui nous permettent de prendre la mer.</p>
+        </div>
+        <div id="partenaires-liste"></div>
+      </div>
+    </section>
+
+    <div class="vagues" aria-hidden="true"></div>
+
+    <!-- Devenir partenaire -->
+    <section class="bloc partenariat" id="devenir-partenaire">
+      <div class="conteneur">
+        <div class="partenariat-intro">
+          <h2 id="partenariat-titre">Devenir partenaire du Club Voile HEC</h2>
+          <p id="partenariat-texte"></p>
+        </div>
+        <div class="offres" id="offres"></div>
+        <div class="contact" id="contact"></div>
+      </div>
+    </section>
+
+    <!-- Événements -->
+    <section class="bloc" id="evenements">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Événements à venir</h2>
+          <p>Régates, week-ends en mer et soirées du club. Inscrivez-vous en ligne.</p>
+        </div>
+        <div class="evenements" id="liste-evenements"><p class="vide">Chargement des événements…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied-grille">
+      <div class="marque marque-pied">
+        <img class="logo-club" src="images/logo.svg" alt="" width="44" height="44" />
+        <span><b>Club Voile</b><small>HEC Paris</small></span>
+      </div>
+      <div id="pied-contact"></div>
+      <a class="lien-prive" href="admin.html">Espace privé</a>
+    </div>
+    <div class="conteneur"><p class="credits" id="credits"></p></div>
+  </footer>
+
+  <!-- Inscription à un événement -->
+  <dialog class="fenetre" id="modal-inscription" aria-labelledby="modal-titre">
+    <form class="formulaire" id="form-inscription" method="dialog">
+      <h3 id="modal-titre">Inscription</h3>
+      <label>Prénom<input name="first_name" autocomplete="given-name" required /></label>
+      <label>Nom<input name="last_name" autocomplete="family-name" required /></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+      <label>Téléphone<input name="phone" type="tel" autocomplete="tel" /></label>
+      <div class="actions">
+        <button type="submit" class="bouton bouton-plein">Je m'inscris</button>
+        <button type="button" class="bouton bouton-ligne" id="fermer-modal">Annuler</button>
+      </div>
+      <p class="message" id="msg-inscription" role="status"></p>
+    </form>
+  </dialog>
+
+  <!-- Visionneuse photos -->
+  <dialog class="visionneuse" id="visionneuse" aria-label="Photo agrandie">
+    <button class="visionneuse-fermer" id="visionneuse-fermer" aria-label="Fermer">×</button>
+    <button class="visionneuse-nav precedent" id="visionneuse-prec" aria-label="Photo précédente">‹</button>
+    <figure><img id="visionneuse-img" alt="" /><figcaption id="visionneuse-legende"></figcaption></figure>
+    <button class="visionneuse-nav suivant" id="visionneuse-suiv" aria-label="Photo suivante">›</button>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="contenu.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

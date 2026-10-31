@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Club Voile HEC – Espace privé</title>
+  <link rel="icon" href="images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin">
+  <!-- Connexion -->
+  <main class="connexion" id="ecran-connexion">
+    <form class="formulaire carte-connexion" id="form-connexion">
+      <div class="marque marque-connexion">
+        <img class="logo-club" src="images/logo.svg" alt="" width="44" height="44" />
+        <span><b>Club Voile</b><small>Espace privé du bureau</small></span>
+      </div>
+      <label>Mot de passe du bureau<input type="password" id="mdp" autocomplete="current-password" required /></label>
+      <button type="submit" class="bouton bouton-plein">Se connecter</button>
+      <p class="message" id="msg-connexion" role="alert"></p>
+      <a href="index.html" class="retour">Retour au site</a>
+    </form>
+  </main>
+
+  <!-- Espace privé -->
+  <div class="espace" id="espace" hidden>
+    <aside class="barre">
+      <div class="marque">
+        <img class="logo-club" src="images/logo.svg" alt="" width="40" height="40" />
+        <span><b>Club Voile</b><small>Espace privé</small></span>
+      </div>
+      <nav class="onglets" id="onglets" aria-label="Rubriques">
+        <p class="groupe">Contenu du site</p>
+        <button data-p="reglages" class="actif">Textes et contact</button>
+        <button data-p="chiffre">Chiffres clés</button>
+        <button data-p="palmares">Palmarès</button>
+        <button data-p="entrainement">Sorties et entraînements</button>
+        <button data-p="competition">Calendrier</button>
+        <button data-p="photo">Photos</button>
+        <button data-p="partenaire">Sponsors</button>
+        <button data-p="offre">Offres de partenariat</button>
+        <p class="groupe">Gestion du club</p>
+        <button data-p="p-weios">Organisation du WEIOS</button>
+        <button data-p="p-evenements">Événements</button>
+        <button data-p="p-inscrits">Inscrits</button>
+        <button data-p="p-budget">Budget</button>
+        <button data-p="p-todos">Suivi sponsors</button>
+      </nav>
+      <div class="barre-bas">
+        <a href="index.html" target="_blank" rel="noopener">Voir le site</a>
+        <a href="#" id="deconnexion">Se déconnecter</a>
+      </div>
+    </aside>
+
+    <main class="travail">
+      <!-- Panneaux de contenu générés par admin.js -->
+      <div id="panneaux-contenu"></div>
+
+      <!-- Organisation du WEIOS -->
+      <section class="panneau" id="p-weios">
+        <header class="panneau-tete"><div><h1>Organisation du WEIOS</h1><p>L'espace de préparation du WEIOS : les tâches à faire, qui s'en occupe et pour quand. Visible uniquement par le bureau.</p></div>
+          <div class="tete-actions"><button class="bouton bouton-ligne" id="export-weios">Télécharger (CSV)</button></div></header>
+        <div class="totaux" id="weios-totaux"></div>
+        <form class="formulaire carte grille-form" id="form-weios">
+          <label class="large">Tâche<input name="tache" placeholder="Réserver les bateaux" required /></label>
+          <label>Pôle<input name="pole" placeholder="Logistique, Bateaux, Communication…" list="poles-weios" /></label>
+          <label>Responsable<input name="responsable" placeholder="Prénom Nom" /></label>
+          <label>Échéance<input name="echeance" type="date" /></label>
+          <div class="large"><button type="submit" class="bouton bouton-plein">Ajouter la tâche</button></div>
+          <datalist id="poles-weios"><option value="Logistique"><option value="Bateaux"><option value="Hébergement"><option value="Communication"><option value="Partenaires"><option value="Trésorerie"></datalist>
+        </form>
+        <div id="liste-weios"></div>
+      </section>
+
+      <!-- Événements -->
+      <section class="panneau" id="p-evenements">
+        <header class="panneau-tete"><div><h1>Événements</h1><p>Les événements publiés apparaissent sur le site avec un bouton d'inscription.</p></div></header>
+        <form class="formulaire carte grille-form" id="form-evenement">
+          <label class="large">Titre<input name="title" placeholder="Sortie en mer du printemps" required /></label>
+          <label>Date<input name="event_date" type="date" required /></label>
+          <label>Heure<input name="event_time" type="time" /></label>
+          <label class="large">Lieu<input name="location" required /></label>
+          <label class="large">Description<textarea name="description" rows="3"></textarea></label>
+          <div class="large"><button type="submit" class="bouton bouton-plein">Publier l'événement</button></div>
+        </form>
+        <div class="tableau-cadre"><table><thead><tr><th>Date</th><th>Heure</th><th>Titre</th><th>Lieu</th><th></th></tr></thead><tbody id="t-evenements"></tbody></table></div>
+      </section>
+
+      <!-- Inscrits -->
+      <section class="panneau" id="p-inscrits">
+        <header class="panneau-tete"><div><h1>Inscrits</h1><p>Les inscriptions reçues, regroupées par événement.</p></div>
+          <button class="bouton bouton-ligne" id="export-inscrits">Télécharger (Excel/CSV)</button></header>
+        <div id="tableaux-inscrits"></div>
+      </section>
+
+      <!-- Budget -->
+      <section class="panneau" id="p-budget">
+        <header class="panneau-tete"><div><h1>Budget</h1><p>Recettes et dépenses de la saison.</p></div>
+          <button class="bouton bouton-ligne" id="export-budget">Télécharger (CSV)</button></header>
+        <div class="totaux">
+          <div class="total">Recettes<b id="tot-recettes">0 €</b></div>
+          <div class="total">Dépenses<b id="tot-depenses">0 €</b></div>
+          <div class="total">Solde<b id="tot-solde">0 €</b></div>
+        </div>
+        <form class="formulaire carte grille-form" id="form-budget">
+          <label class="large">Libellé<input name="label" placeholder="Location du bateau" required /></label>
+          <label>Type<select name="entry_type"><option value="depense">Dépense</option><option value="recette">Recette</option></select></label>
+          <label>Catégorie<input name="category" placeholder="Bateau, Déplacement, Équipement, Sponsoring…" /></label>
+          <label>Montant (€)<input name="amount" type="number" step="0.01" min="0" required /></label>
+          <label>Date<input name="entry_date" type="date" required /></label>
+          <div class="large"><button type="submit" class="bouton bouton-plein">Ajouter au budget</button></div>
+        </form>
+        <div class="tableau-cadre"><table><thead><tr><th>Date</th><th>Libellé</th><th>Catégorie</th><th>Type</th><th>Montant</th></tr></thead><tbody id="t-budget"></tbody></table></div>
+      </section>
+
+      <!-- Suivi sponsors -->
+      <section class="panneau" id="p-todos">
+        <header class="panneau-tete"><div><h1>Suivi sponsors</h1><p>Les contreparties promises à chaque sponsor, à cocher quand c'est fait.</p></div></header>
+        <form class="formulaire carte grille-form" id="form-todo">
+          <label>Sponsor<input name="sponsor" required /></label>
+          <label>Action<input name="task" placeholder="Poster le logo sur Instagram" required /></label>
+          <div class="large"><button type="submit" class="bouton bouton-plein">Ajouter la tâche</button></div>
+        </form>
+        <div id="liste-todos"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Fenêtre d'édition d'un élément -->
+  <dialog class="fenetre fenetre-large" id="editeur" aria-labelledby="editeur-titre">
+    <form class="formulaire" id="form-editeur" method="dialog">
+      <h3 id="editeur-titre">Modifier</h3>
+      <div class="champs" id="editeur-champs"></div>
+      <div class="actions">
+        <button type="submit" class="bouton bouton-plein" id="editeur-enregistrer">Enregistrer</button>
+        <button type="button" class="bouton bouton-ligne" id="editeur-annuler">Annuler</button>
+      </div>
+      <p class="message" id="editeur-msg" role="status"></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="contenu.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
